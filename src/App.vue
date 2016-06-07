@@ -84,12 +84,8 @@ a {
 <div class="wrap"><div class="container">
 
     <div class="col-md-9 thread-list">
-        <div class="row tag-list">版块:
-            <span class="tag" v-for="1 in 14" track-by="$index" :class="{'active':$index==0}">
-        <a href="#tag">PHP</a>
-        </span>
-        </div>
-        <Thread v-for="1 in 15"></Thread>
+      <router-view></router-view>
+
     </div>
     <div class="col-md-3 ">
 
@@ -141,11 +137,11 @@ a {
 
 import GeekHeader from './components/Head'
 import GeekFooter from './components/Foot'
-import Thread from './components/ThreadEntity'
 export default {
+    replace:false,
     ready() {},
         components: {
-            GeekHeader, GeekFooter, Thread
+            GeekHeader, GeekFooter
         }
 }
 
