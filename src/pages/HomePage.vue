@@ -23,6 +23,9 @@ import Thread from '../components/ThreadEntity'
 export default {
     components: {
         Thread
+    },
+    ready() {
+      
     }
 }
 

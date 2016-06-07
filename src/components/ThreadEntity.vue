@@ -4,11 +4,12 @@
 
  <img :src="'http://lorempixel.com/50/50/?'+Math.random()" alt="" class="thread-avatar img-circle">
  <div class="thread-title">
-  <a href="#">分享一段 flask 分页代码</a>
+  <a v-link="'/post/'+id">{{title||'(无标题)'}}</a>
    <div class="thread-meta">
-     <span class="tag">PHP</span>
+     <span class="tag" v-for="tag in tags">{{tag}}</span>
+
      <span class="bullet">•</span>
-     <span class="author">Automan</span>
+     <span class="author">{{Author||'匿名'}}</span>
      <span class="bullet">•</span>
      <span class="time">10分钟前</span>
 
@@ -20,7 +21,14 @@
 </template>
 <script>
 export default {
-  name:'ThreadEntity'
+  name:'ThreadEntity',
+  props: {
+    id:Number,
+    title:String,
+    tags:Array,
+    Author:String
+  }
+
 }
 </script>
 <style lang="scss" scoped>
@@ -37,7 +45,7 @@ export default {
       color:#333;
       &:hover {
         color:$brand-success;
-        text-decoration: none; 
+        text-decoration: none;
       }
     }
   }
