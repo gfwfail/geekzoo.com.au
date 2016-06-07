@@ -4,6 +4,11 @@
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
 @import './theme/_bootswatch';
+
+@import './theme/loading.css';
+@import './theme/transition.css';
+
+
 .navbar {
     border-top: solid 4px darken($brand-success, 10%);
     border-bottom: solid 1px $gray-lighter;

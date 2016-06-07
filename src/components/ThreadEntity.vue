@@ -2,16 +2,16 @@
 <div class="row thread">
   <span class="badge pull-right">4</span>
 
- <img :src="'http://lorempixel.com/50/50/?'+Math.random()" alt="" class="thread-avatar img-circle">
+ <img :src="avatar" alt="" class="thread-avatar img-circle">
  <div class="thread-title">
   <a v-link="'/post/'+id">{{title||'(无标题)'}}</a>
    <div class="thread-meta">
      <span class="tag" v-for="tag in tags">{{tag}}</span>
 
      <span class="bullet">•</span>
-     <span class="author">{{Author||'匿名'}}</span>
+     <span class="author">{{author||'匿名'}}</span>
      <span class="bullet">•</span>
-     <span class="time">10分钟前</span>
+     <span class="time">{{ created_at }}</span>
 
    </div>
  </div>
@@ -26,7 +26,9 @@ export default {
     id:Number,
     title:String,
     tags:Array,
-    Author:String
+    author:String,
+    avatar:String,
+    created_at:String
   }
 
 }

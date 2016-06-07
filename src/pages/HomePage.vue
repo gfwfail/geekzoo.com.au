@@ -12,20 +12,34 @@
   <a href="#tag">PHP</a>
   </span>
 </div>
-<Thread v-for="1 in 15"></Thread>
+<div class="spinner" v-show="threads == null"></div>
+<Thread transition="fade" v-for="thread in threads" :created_at="thread.since" :avatar="thread.avatar" :id="thread.id" :title="thread.title" :author="thread.author" :tags="['PHP','VueJs']"></Thread>
 
 </template>
 
 <script>
 
 import Thread from '../components/ThreadEntity'
-
+import * as api from '../api'
 export default {
     components: {
         Thread
     },
+    data() {
+        return {
+            threads: null
+        }
+    },
     ready() {
-      
+      var self = this
+        api.getAllthreads(this.$http).then(
+          (xhr)=>{
+            self.threads = xhr.data.data
+          },
+          (err)=>{
+            console.log(err)
+          }
+        )
     }
 }
 
